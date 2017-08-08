@@ -29,15 +29,21 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6">
 				<div class="row">
+					<form class="form-inline search-form" onsubmit="app.controllers.nflController.searchPlayers(event);">
+						<input type="text" class="form-control" name="name-search" placeholder="Name">
+						<input type="text" class="form-control" name="team-search" placeholder="Team">
+						<input type="text" class="form-control" name="pos-search" placeholder="Position">
+						<button type="submit" class="btn">Search</button>
+					</form>
+				</div>
+				<div class="row" id="selectable-players">
 					<!-- This is where all the selectable players go -->
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<!-- selected players -->
-				<div class="addFormContainer">
-					<form onsubmit="">
-						
-					</form>
+				<div id="selected-players">
+
 				</div>
 			</div>
 		</div>
