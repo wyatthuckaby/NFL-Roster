@@ -40,13 +40,13 @@ function NflService() {
      * @return {array}  results
      */
     function getPlayersByTeam(team){
-        var ret = [];
-        players.filter(player => {
+        var arr = [];
+        arr = players.filter(player => {
             if (player.pro_team === team) 
-                ret.push(player);
+                return true;
             
         });
-        return ret;
+        return arr;
     }
 
 
@@ -56,14 +56,14 @@ function NflService() {
      * @return {array}   results
      */
     function getPlayersByPosition  (pos){
-        var ret = [];
-        players.filter(player => {
+        var arr = [];
+        arr = players.filter(player => {
             if (player.position === pos) 
-                ret.push(player)
+                return true;
         });
 
 
-        return ret;
+        return arr;
     }
 
 
@@ -73,15 +73,15 @@ function NflService() {
      * @return {array}      results
      */
     function getPlayersByName(name){
-        var ret =[];
+        var arr = [];
         //i want to parse both the first and last name at the same time
         //for the maximum chance for the user finding the result they want.
-        players.filter(player => {
+        arr = players.filter(player => {
             if (player.firstname === name || player.lastname === name)
-                ret.push(player);
+                return true;
         });
 
-        return ret;
+        return arr;
     }
 
 
