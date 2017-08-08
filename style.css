@@ -1,0 +1,17 @@
+.header{
+	background-color: #262626;
+
+}
+
+.logo{
+	width: 30%;
+	height: auto;
+	margin: 0 auto;
+}
+
+.website-title{
+	color: #e7e7e7;
+    font-family: 'Droid Serif', serif;
+    font-size: 4vh;
+	text-align: center;
+}
