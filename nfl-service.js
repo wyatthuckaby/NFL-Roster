@@ -136,6 +136,11 @@ function NflService() {
     }
 
 
+    /**
+     * removes player from roster
+     * @param  {NFL thing}   id     player to be removed
+     * @param  {Function} cb callback
+     */
     this.removePlayerFromRoster = function(id, cb){
         var playerKeys = Object.keys(roster);
         for (var i = playerKeys.length - 1; i >= 0; i--) {
@@ -148,6 +153,12 @@ function NflService() {
     }
 
 
+
+    /**
+     * inializes the roster at startup - this should only run once
+     * @param  {Function} cb    Callback
+     *
+     */
     this.initRoster = function(cb){
         var toCheck = localStorage.getItem("BCWLocalNFLRoster");
         //catches both null and undef in case something is REALLY wrong.

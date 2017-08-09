@@ -6,23 +6,15 @@ function NflController() {
 	 */
 	var service = new NflService();
 
+
+	/**
+	 * Roster Render function
+	 * @param  {Obj} players players to render
+	 * 
+	 */
 	function renderRoster(players){
 		var selectedTemplate = ``;
 		var playerKeys = Object.keys(players);
-		// players.forEach(player => {
-			// selectedTemplate += `
-			// 	<div class="col-xs-12 col-sm-6 card">
-			// 		<img class="player-image img-responsive" src = "${players[playerKeys[i]].photo}" >
-			// 		<h2> ${players[playerKeys[i]].firstname} ${players[playerKeys[i]].lastname} </h2>
-			// 		<h3> ${players[playerKeys[i]].position} - ${players[playerKeys[i]].pro_team} </h3>
-			// 		<button onclick="app.controllers.nflController.removeRoster('${players[playerKeys[i]].elias_id}')
-			// 		" class="btn">Remove</button>
-			// 	</div>
-			// `;
-		// });
-		// 
-		// 
-		// 
 
 		for (var i = playerKeys.length - 1; i >= 0; i--) {
 			//console.log (players[playerKeys[i]]);
@@ -41,6 +33,13 @@ function NflController() {
 
 		document.getElementById("selected-players").innerHTML = selectedTemplate;
 	}
+
+
+	/**
+	 * Renders the players in the search
+	 * @param  {arr} foundPlayers players located
+	 * 
+	 */
 	function renderPlayers(foundPlayers){
 
 		var selectableTemplate = ``;
@@ -80,6 +79,8 @@ function NflController() {
 		service.initRoster();
 	}
 
+
+
 	/**
 	 * search players function
 	 * @param  {"event"} e event
@@ -97,10 +98,14 @@ function NflController() {
 
 	}
 
+
+	
 	this.addRoster = function(id){
 		service.addPlayerToRoster(id, renderRoster);
 		//console.log(id);
 	}
+
+
 
 
 	this.removeRoster = function(id){
