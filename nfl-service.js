@@ -130,6 +130,7 @@ function NflService() {
             }
         });
 
+        localStorage.setItem("BCWLocalNFLRoster", JSON.stringify(roster));
         cb (roster);
 
     }
@@ -142,8 +143,21 @@ function NflService() {
                 delete roster[playerKeys[i]];
             }
         }
-
+        localStorage.setItem("BCWLocalNFLRoster", JSON.stringify(roster));
         cb (roster);
+    }
+
+
+    this.initRoster = function(cb){
+        var toCheck = localStorage.getItem("BCWLocalNFLRoster");
+        //catches both null and undef in case something is REALLY wrong.
+        if (!toCheck){
+            console.log ("Roster data missing... Skipping pre-render");
+        } else {
+            console.log ("Roster data is present. Pulling in old data..");
+            roster = JSON.parse(toCheck);
+        }
+        cb(roster);
     }
     loadPlayerData();
 }

@@ -25,7 +25,7 @@ function NflController() {
 		// 
 
 		for (var i = playerKeys.length - 1; i >= 0; i--) {
-			console.log (players[playerKeys[i]]);
+			//console.log (players[playerKeys[i]]);
 
 
 			selectedTemplate += `
@@ -71,6 +71,15 @@ function NflController() {
 
 	}
 
+
+	/**
+	 * Only runs once; Checks for existing roster data
+	 * @return {[type]} [description]
+	 */
+	function initRoster(){
+		service.initRoster();
+	}
+
 	/**
 	 * search players function
 	 * @param  {"event"} e event
@@ -98,5 +107,9 @@ function NflController() {
 		service.removePlayerFromRoster(id, renderRoster);
 		console.log(id);
 	}
+
+
+	service.initRoster(renderRoster);
+
 }
 
