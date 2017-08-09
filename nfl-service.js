@@ -18,16 +18,22 @@ function NflService() {
         }
 
 
+
         var api = "//bcw-getter.herokuapp.com/?url=" + 
         encodeURIComponent("https://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json");
 
-
+        swal ("Please Wait while we fetch the data");
+        swal.showLoading();
         console.log ("Please Wait... Retriving NFL Data into local storage");
         $.getJSON(api, function(data){
             playersData = data.body.players;
             localStorage.setItem("BCWLocalNFL", JSON.stringify(playersData));
             console.log("Success!");
+            swal.hideLoading();
+            swal.close();
         });
+
+
     }
 
 
