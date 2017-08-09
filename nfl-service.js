@@ -118,6 +118,11 @@ function NflService() {
      * @param {Function} cb 
      */
     this.addPlayerToRoster = function (id, cb){
+        if (Object.keys(roster).length >= 5){
+            //no more.
+            swal ('No more room!', 'Only 5 players can be rostered!', 'error');
+            return;
+        }
         players.forEach(player => {
             if (player.elias_id == id){
                 roster[player.elias_id] = player;
