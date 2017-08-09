@@ -26,7 +26,7 @@
 		</div>
 	
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6">
+			<div class="col-xs-12 col-sm-6 col-md-6 selectable-container">
 				<div class="row">
 					<form class="form-inline search-form" onsubmit="app.controllers.nflController.searchPlayers(event);">
 						<input type="text" class="form-control" name="name-search" placeholder="Name">
@@ -41,7 +41,7 @@
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<!-- selected players -->
-				<div id="selected-players">
+				<div class="row" id="selected-players">
 
 				</div>
 			</div>

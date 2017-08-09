@@ -5,7 +5,7 @@ function NflService() {
      * @type {Array}
      */
     var players = [];
-
+    var roster = {};
     /**
      * Loads player data either from localStorage or nfl API.
      * @return {void} not applicable
@@ -111,5 +111,34 @@ function NflService() {
     }
 
 
+
+    /**
+     * adds player to roster and runs callback with roster array
+     * @param {String????}   id the NFL ID thing... K
+     * @param {Function} cb 
+     */
+    this.addPlayerToRoster = function (id, cb){
+        players.forEach(player => {
+            if (player.elias_id == id){
+                roster[player.elias_id] = player;
+                return;
+            }
+        });
+
+        cb (roster);
+
+    }
+
+
+    this.removePlayerFromRoster = function(id, cb){
+        var playerKeys = Object.keys(roster);
+        for (var i = playerKeys.length - 1; i >= 0; i--) {
+            if (roster[playerKeys[i]].elias_id == id){
+                delete roster[playerKeys[i]];
+            }
+        }
+
+        cb (roster);
+    }
     loadPlayerData();
 }
